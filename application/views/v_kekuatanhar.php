@@ -123,7 +123,17 @@
     <div id="snackbar_failed"></div>
     </div>
 <?php include 'include/phpscript.php';?>
-    <script>
+    <script>    
+        $(document).ready(function() {
+            $('[contenteditable="true"]').keypress(function(e) {
+                var x = event.charCode || event.keyCode;
+                if (isNaN(String.fromCharCode(e.which)) 
+                    && x!=46 || x===32 || x===13 || (x===46 
+                    && event.currentTarget.innerText.includes('.')) 
+                ) 
+                e.preventDefault();
+            });
+        });
 
 		function showEdit(editableObj) {
 			$(editableObj).css("background","#FFF");

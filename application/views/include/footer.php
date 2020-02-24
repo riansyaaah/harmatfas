@@ -4,7 +4,9 @@
         </span>
         <font size ="2" >2017 Copyright @ Renprogar</font>
     </footer>
+    
     <script type='text/javascript'>
+        
         var IDLE_TIMEOUT = 30 * 60; //Minutes
         var _idleSecondsCounter = 0;
         document.onclick = function() {
@@ -28,5 +30,16 @@
                 document.location.href = "<?php echo base_url('login/logout'); ?>";
             }
         }
+
+        $(document).ready(function() {
+            $('[contenteditable="true"]').keypress(function(e) {
+                var x = event.charCode || event.keyCode;
+                if (isNaN(String.fromCharCode(e.which)) 
+                    && x!=46 || x===32 || x===13 || (x===46 
+                    && event.currentTarget.innerText.includes('.')) 
+                ) 
+                e.preventDefault();
+            });
+        });
 
     </script>
