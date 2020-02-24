@@ -63,9 +63,11 @@
         });
 
         $('#email').change(function () {
-            console.log("Email : " + this.value)
-            console.log(validateEmail(this.value));
-            if (validateEmail(email)) {
+            // console.log("Email : " + this.value)
+            console.log("VALIDASI EMAIL1 : " + validateEmail(this.value));
+
+
+            if (validateEmail(this.value)) {
                 $('#validasi-email1').hide();
             }else{
                 $('#validasi-email1').show();
@@ -79,12 +81,12 @@
                         'email': this.value
                     },
                     success: function (data) {
-                        console.log("Result Json Email : " + data)
+                        // console.log("Result Json Email : " + data)
                         if(data == 'false'){
-                            console.log("Show Validas Email");
+                            // console.log("Show Validas Email");
                             $('#validasi-email').show();
                         }else{
-                            console.log("Hide Validas Email");
+                            // console.log("Hide Validas Email");
                             $('#validasi-email').hide();
                         }
                     }
